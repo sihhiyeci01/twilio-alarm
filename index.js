@@ -6,7 +6,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.post("/call", (req, res) => {
+app.get("/call", (req, res) => {
     const client = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH);
     const to = process.env.TO_NUMBER;
     const from = process.env.FROM_NUMBER;
@@ -15,7 +15,7 @@ app.post("/call", (req, res) => {
     client.calls
         .create({ to, from, url })
         .then(call => {
-            console.log("Call SID:", call.sid);
+            console.log("GET Call SID:", call.sid);
             res.send("Calling...");
         })
         .catch(err => {
