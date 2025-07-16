@@ -12,7 +12,8 @@ app.post("/hello", (req, res) => {
     const client = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH);
     const to = process.env.TO_NUMBER;
     const from = process.env.FROM_NUMBER;
-    const url = process.env.TWIML_URL;
+    const pcName = req.body.pcName || "Unknown";
+    const url = `${process.env.TWIML_URL}?pcName=${encodeURIComponent(pcName)}`;
 
     console.log({ to, from, url });
 
