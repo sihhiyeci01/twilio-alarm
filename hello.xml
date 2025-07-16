@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Say voice="man" language="en-US">
+        Hello my king. This is your C++ program speaking. Wake up and conquer the world.
+    </Say>
+</Response>
