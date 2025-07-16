@@ -5,7 +5,9 @@ require("dotenv").config();
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.get("/hello", (req, res) => {
+    res.send("hello endpoint is working ❤️");
+});
 app.post("/hello", (req, res) => {
     const client = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH);
     const to = process.env.TO_NUMBER;
